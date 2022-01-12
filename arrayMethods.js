@@ -120,13 +120,13 @@ console.log(afterTax)
 ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
-// const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
-// {"owner":"Bob","price":73},{"owner":"Barry","price":57},{"owner":"Barry","price":128},
-// {"owner":"Bob","price":119},{"owner":"Barry","price":133},{"owner":"Barry","price":27},
-// {"owner":"Barry","price":138},{"owner":"Bob","price":68},{"owner":"Bob","price":50},
-// {"owner":"Barry","price":9},{"owner":"Bob","price":123},{"owner":"Bob","price":135},
-// {"owner":"Barry","price":30},{"owner":"Barry","price":129},{"owner":"Barry","price":38},
-// {"owner":"Bob","price":133},{"owner":"Barry","price":109},{"owner":"Bob","price":115}];
+const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
+{"owner":"Bob","price":73},{"owner":"Barry","price":57},{"owner":"Barry","price":128},
+{"owner":"Bob","price":119},{"owner":"Barry","price":133},{"owner":"Barry","price":27},
+{"owner":"Barry","price":138},{"owner":"Bob","price":68},{"owner":"Bob","price":50},
+{"owner":"Barry","price":9},{"owner":"Bob","price":123},{"owner":"Bob","price":135},
+{"owner":"Barry","price":30},{"owner":"Barry","price":129},{"owner":"Barry","price":38},
+{"owner":"Bob","price":133},{"owner":"Barry","price":109},{"owner":"Bob","price":115}];
 // Do not edit the code above.
 
 /*
@@ -134,3 +134,10 @@ console.log(afterTax)
 */
 
 // CODE HERE
+
+const bobsTotal = purchases.filter( (element) =>{
+  return element.owner === 'Bob'
+}).reduce((acc, element) => {
+  return (acc += element.price)
+}, 0);
+console.log(bobsTotal)

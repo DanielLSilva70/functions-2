@@ -125,17 +125,20 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE
-function uniq(arr, callBack) {
+function uniq(arr, cb) {
   for(let i =0; i < arr.length; i++) {
-    for(let j = i + 1; j < arr.length; j++) {
+    for(let j = i + 1; j < arr.length; j--) {
       if(arr[i] === arr[j]) {
         arr.splice(j,1)
         j--
       }
     }
-  }callBack(arr);
+  }cb(arr);
 }
-
+function printIt(arr) {
+  console.log('New array');
+  console.log(arr);
+}
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
   The callback function should take in one parameter called uniqArr.
@@ -143,8 +146,11 @@ function uniq(arr, callBack) {
   'The new names array with all the duplicate items removed is [UNIQARRPARAM].'
 */
 
-// CODE HERE
-uniq(names, uniqArr => console.log(uniqArr))
+// CODE HERe
+//uniq(names, uniqArr => console.log(uniqArr))
+// uniq(names, function uniqArr9(arr)) {
+
+// }
 
 
 ////////// PROBLEM 6 //////////

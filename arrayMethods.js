@@ -110,6 +110,9 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
+// Orders Array is an array objects
+// Anytime you are looping through an array of objects you have access to dot notation to access different properties on that object 
+ 
 const afterTax = orders.map((element) => {
   return element.price * (element.tax + 1);
 } )
@@ -117,7 +120,7 @@ console.log(afterTax)
 
 
 
-////////// PROBLEM 6 //////////
+// ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
 const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},

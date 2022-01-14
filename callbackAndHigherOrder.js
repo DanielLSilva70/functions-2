@@ -123,11 +123,11 @@ contains(names, 'Colt', result => {
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
   Hint: you can use a nested for loop to do this.
 */
-
+//var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 // CODE HERE
 function uniq(arr, cb) {
-  for(let i =0; i < arr.length; i++) {
-    for(let j = i + 1; j < arr.length; j--) {
+  for(let i = 0; i < arr.length; i++) {
+    for(let j = i + 1; j < arr.length; j++) {
       if(arr[i] === arr[j]) {
         arr.splice(j,1)
         j--
@@ -136,41 +136,54 @@ function uniq(arr, cb) {
   }cb(arr);
 }
 function printIt(arr) {
-  console.log('New array');
   console.log(arr);
 }
+uniq(names, printIt)
 /*
-  Invoke the uniq function, passing in the names array from above and a callback function.
-  The callback function should take in one parameter called uniqArr.
-  The callback should print a string that says:
-  'The new names array with all the duplicate items removed is [UNIQARRPARAM].'
+Invoke the uniq function, passing in the names array from above and a callback function.
+The callback function should take in one parameter called uniqArr.
+The callback should print a string that says:
+'The new names array with all the duplicate items removed is [UNIQARRPARAM].'
 */
 
 // CODE HERe
-//uniq(names, uniqArr => console.log(uniqArr))
+uniq(names, uniqArr => console.log(uniqArr))
 // uniq(names, function uniqArr9(arr)) {
-
-// }
-
-
-////////// PROBLEM 6 //////////
-
-/* 
+  
+  // }
+  
+  
+  ////////// PROBLEM 6 //////////
+  
+  /* 
   Write a function called each that takes in an array of names and a callback function. 
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
-*/
-
-// CODE HERE 
-
-
-/*
+  */
+ 
+ // CODE HERE 
+ function each (names, cb) {
+   for(let i = 0; i < names.length; i++) {
+     cb(names[i], i)
+    }
+  }
+  
+  /*
   Invoke the each function, passing in the names array and a callback function.
   The callback function should take in two paremeters, item and index.
   The callback should print a string that says:
   'The item at index [INDEXPARAM] is [ITEMPARAM].'
+  //var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+each(names, equalTo)
+
+
+// callback
+// Print means console.log()
+function equalTo (item, index) {
+  console.log(`The item at index ${index} is ${item}`)
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -204,15 +217,22 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
+function getUserById(users , id, cb) {
+  users.forEach((user) => {
+    if(user.id === id) {
+      cb(user)
+    }
+  });
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+ getUserById(users, '16t', user => {
+   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+ })
 
 ////////// CHALLENGE //////////
 
